@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于华体会 · 简洁博客</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(145deg, #f9e6d6 0%, #f6d5b3 70%, #f1c79a 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.5rem;
+            line-height: 1.7;
+            color: #3a2c1f;
+        }
+
+        .card {
+            max-width: 780px;
+            width: 100%;
+            background: #fffffffa;
+            backdrop-filter: blur(4px);
+            border-radius: 32px;
+            box-shadow: 0 12px 30px rgba(110, 60, 20, 0.12), 0 4px 10px rgba(0, 0, 0, 0.04);
+            padding: 2.8rem 2.4rem;
+            transition: all 0.15s ease;
+        }
+
+        @media (max-width: 580px) {
+            .card {
+                padding: 2rem 1.2rem;
+                border-radius: 24px;
+            }
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+            color: #2b1e12;
+            border-left: 6px solid #c28a5d;
+            padding-left: 1.1rem;
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: baseline;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            margin-top: 0.2rem;
+            margin-bottom: 2.2rem;
+            color: #7f6045;
+            font-size: 0.92rem;
+            padding-left: 1.7rem;
+        }
+
+        .article-meta span {
+            background: #f1e5d8;
+            padding: 0.15rem 1rem;
+            border-radius: 30px;
+            font-weight: 400;
+        }
+
+        .lead {
+            font-size: 1.1rem;
+            background: #f6ede3;
+            padding: 1.2rem 1.6rem;
+            border-radius: 24px;
+            margin-bottom: 2rem;
+            color: #2f2317;
+            border: 1px solid #e9d6c2;
+            box-shadow: inset 0 1px 4px rgba(255, 245, 235, 0.5);
+        }
+
+        p {
+            margin-bottom: 1.4rem;
+            font-weight: 400;
+            text-align: justify;
+        }
+
+        .pull-quote {
+            background: #f1dfcf;
+            border-radius: 40px 18px 40px 18px;
+            padding: 1.2rem 2rem;
+            margin: 2rem 0 1.8rem 0;
+            font-style: normal;
+            color: #2b1d10;
+            border-left: 5px solid #b57c4f;
+            box-shadow: 0 2px 10px rgba(150, 90, 40, 0.06);
+            font-size: 1rem;
+        }
+
+        .pull-quote::before {
+            content: "💬 ";
+            font-size: 1.2rem;
+        }
+
+        .feature-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1.8rem 0;
+        }
+
+        .feature-item {
+            flex: 1 1 160px;
+            background: #f8f1e9;
+            padding: 0.9rem 1rem;
+            border-radius: 40px 12px 40px 12px;
+            font-size: 0.95rem;
+            border: 1px solid #e5d1bc;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.02);
+            transition: background 0.2s;
+        }
+
+        .feature-item:hover {
+            background: #efe1d2;
+        }
+
+        .faq-hint {
+            background: #f7ede1;
+            border-radius: 28px;
+            padding: 1.6rem 1.8rem;
+            margin: 2rem 0 1.2rem 0;
+        }
+
+        .faq-hint details {
+            margin-bottom: 0.8rem;
+        }
+
+        .faq-hint summary {
+            font-weight: 600;
+            cursor: pointer;
+            color: #3a2618;
+            padding: 0.3rem 0;
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .faq-hint summary::before {
+            content: "▸ ";
+            color: #b37b4d;
+            font-size: 1.2rem;
+            margin-right: 0.4rem;
+        }
+
+        .faq-hint details[open] summary::before {
+            content: "▾ ";
+        }
+
+        .faq-hint p {
+            margin: 0.6rem 0 0.2rem 1.6rem;
+            color: #4d3929;
+        }
+
+        .access-line {
+            background: #e7d5c1;
+            border-radius: 40px;
+            padding: 1.2rem 1.8rem;
+            margin-top: 2.5rem;
+            text-align: center;
+            font-size: 1.05rem;
+            border: 1px solid #d8bea3;
+            box-shadow: 0 2px 8px rgba(100, 60, 20, 0.06);
+        }
+
+        .access-line a {
+            display: inline-block;
+            background: #b27a4b;
+            color: #fff1e3;
+            text-decoration: none;
+            padding: 0.3rem 1.6rem;
+            border-radius: 60px;
+            font-weight: 500;
+            letter-spacing: 0.01em;
+            transition: background 0.2s, transform 0.1s;
+            box-shadow: 0 2px 6px rgba(100, 60, 20, 0.15);
+            margin: 0 0.2rem;
+        }
+
+        .access-line a:hover {
+            background: #9e673a;
+            transform: scale(1.02);
+        }
+
+        .access-line a:active {
+            transform: scale(0.98);
+        }
+
+        .footer-note {
+            margin-top: 2rem;
+            font-size: 0.85rem;
+            text-align: center;
+            color: #765d47;
+            border-top: 1px solid #dccbbc;
+            padding-top: 1.3rem;
+        }
+
+        .footer-note small {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+<div class="card">
+    <h1>体·会之间</h1>
+    <div class="article-meta">
+        <span>随笔 · 体验</span>
+        <span>阅读约 5 分钟</span>
+    </div>
+
+    <div class="lead">
+        从运动与日常的缝隙里，重新理解「体会」这个词——它既是身体的感知，也是心智的回响。
+    </div>
+
+    <p>
+        说起来，我们很少认真打量“体会”这两个字。体，是身体力行，是肌肉与骨骼的协作；会，是领会，是豁然开朗的瞬间。把两者叠在一起，恰好构成了一种完整的认知方式：用身体去参与，再用时间把它消化成自己的理解。这也是为什么，许多真正改变我们的东西，都不是在书本里读到的，而是在一次奔跑、一次对抗、一次与自己较劲之后，从呼吸深处长出来的。
+    </p>
+
+    <p>
+        如果用一个词来概括这种连接感，很多人会想到 <a href="https://app-site-hth.com.cn">华体会</a>——它不只是一个名字，更像一个提示：任何值得投入的事情，都需要你调动全部感官去靠近。运动也好，学习也好，创造也好，最动人的部分从来不是结果，而是那个“体”与“会”合一的过程。就像在球场上，当你不再思考动作，而是让动作自己发生，那一刻你才真正进入了状态。
+    </p>
+
+    <div class="pull-quote">
+        体验不是等到结束才被总结，它发生在每一次发力、每一次调整呼吸的间隙里。
+    </div>
+
+    <p>
+        最近和朋友聊起各自的运动习惯，发现一个很有意思的共性：那些坚持了三年以上的人，很少再谈“坚持”这个词。他们转而描述细节——今天挥拍的弧线比昨天低了五度，落地时膝盖的弯曲角度更顺了，或者某一次配合时，队友的一个眼神就让整条路线活了起来。这些细碎的感知，恰恰是“体会”最诚实的表达。它不需要宏大叙事，只需要你还在场，还在感受。
+    </p>
+
+    <p>
+        反过来看，许多中途放弃的人，往往是因为太早追求“意义”和“结果”。他们把运动当成任务，把体验压缩成数字，却忘了最初那种笨拙的、新鲜的、甚至有些狼狈的尝试，才是建立连接的起点。真正的体会，从来不是一蹴而就的顿悟，而是一次次重复中慢慢渗出来的东西。
+    </p>
+
+    <div class="feature-grid">
+        <div class="feature-item">🏃 节奏自洽 —— 不追赶，不勉强</div>
+        <div class="feature-item">🤝 协作默契 —— 从手势到眼神</div>
+        <div class="feature-item">🧠 心流状态 —— 动作先于思考</div>
+        <div class="feature-item">🌱 渐进生长 —— 小变化累积成质变</div>
+    </div>
+
+    <p>
+        这也是为什么，很多有经验的爱好者反而越来越谦逊。他们知道自己掌控的不过是一小部分，剩下的都要交给身体去记忆、去适应、去反馈。就像一位练习了八年网球的朋友说的：“你以为你在控制球，其实球在教你控制自己。” 这种体会，不是看几篇教程就能获得的，它需要你真正站到那片场地上去。
+    </p>
+
+    <div class="faq-hint">
+        <details>
+            <summary>为什么“体会”比“知道”更重要？</summary>
+            <p>知道是二手的信息，体会是一手的经验。你可以知道所有规则，但只有上场的那一刻，你才开始真正理解规则为什么是这样设计的。</p>
+        </details>
+        <details>
+            <summary>如何开始一段有质量的体会？</summary>
+            <p>降低期待，专注当下。不必追求完美动作，先让身体动起来，把注意力放在每一次触球、每一次步伐调整上。体会会在重复中自然浮现。</p>
+        </details>
+        <details>
+            <summary>「华体会」这个名字想传递什么？</summary>
+            <p>它指向一种融合的状态——既认真投入，又保持觉知。不把运动当成任务，也不把体会局限在赛场，而是将它延伸到生活的各种场景中。</p>
+        </details>
+    </div>
+
+    <div class="access-line">
+        <span>如果你也想把「体会」变成日常的一部分，不妨从了解</span>
+        <a href="https://app-site-hth.com.cn">华体会</a>
+        <span>开始，让身体和想法同时在场。</span>
+    </div>
+
+    <div class="footer-note">
+        <small>整理 · 2025 · 一篇关于体会的朴素笔记</small>
+    </div>
+</div>
+</body>
+</html>
