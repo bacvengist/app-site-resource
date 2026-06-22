@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 专题介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f5f3f0;
+            color: #1e1e1e;
+            line-height: 1.65;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* 深色头图 —— 杂志感横幅 */
+        .hero {
+            background: linear-gradient(145deg, #0c0f13 0%, #1a1f26 70%, #242b33 100%);
+            color: #eae7e0;
+            padding: 5rem 1.5rem 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #c1a06b, #d9b97c, #c1a06b);
+            opacity: 0.6;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 350;
+            letter-spacing: 2px;
+            margin-bottom: 0.75rem;
+            color: #f0ede6;
+        }
+
+        .hero .sub {
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: #b7ae9f;
+            max-width: 640px;
+            margin: 0 auto;
+            border-top: 1px solid #3d3f44;
+            padding-top: 1.2rem;
+        }
+
+        /* 浅色正文区 + 卡片式分段 */
+        .content {
+            flex: 1;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 3.2rem 1.8rem 2.8rem;
+            width: 100%;
+        }
+
+        .essay {
+            display: flex;
+            flex-direction: column;
+            gap: 2.8rem;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 2.2rem 2.5rem;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
+            transition: box-shadow 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.05);
+        }
+
+        .card h2 {
+            font-size: 1.45rem;
+            font-weight: 490;
+            margin-bottom: 0.8rem;
+            color: #23272c;
+            letter-spacing: 0.3px;
+            border-left: 4px solid #c1a06b;
+            padding-left: 1rem;
+        }
+
+        .card p {
+            font-size: 1rem;
+            color: #2e2e2e;
+            margin-bottom: 0.8rem;
+        }
+
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 强调色链接 */
+        a {
+            color: #9e7f5c;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border 0.2s, color 0.2s;
+            font-weight: 470;
+        }
+
+        a:hover,
+        a:focus {
+            color: #6d4f2b;
+            border-bottom: 1px solid #6d4f2b;
+            outline: none;
+        }
+
+        .faq-spot {
+            background: #f0ede6;
+            border-radius: 20px;
+            padding: 1.5rem 2rem;
+            margin-top: 1.2rem;
+        }
+
+        .faq-spot summary {
+            font-weight: 500;
+            cursor: pointer;
+            color: #1f262b;
+            padding: 0.2rem 0;
+        }
+
+        .faq-spot summary::-webkit-details-marker {
+            color: #9e7f5c;
+        }
+
+        .faq-spot p {
+            font-size: 0.95rem;
+            padding-top: 0.6rem;
+            color: #363636;
+        }
+
+        /* 页尾访问提示 */
+        .bottom-note {
+            background: #eae5dc;
+            border-radius: 48px;
+            padding: 1.6rem 2.2rem;
+            margin: 1.2rem 0 1.8rem;
+            text-align: center;
+            font-size: 1.05rem;
+            color: #2b2f36;
+            border: 1px solid #d9cfc0;
+        }
+
+        .bottom-note p {
+            margin: 0.2rem 0;
+        }
+
+        footer {
+            background: #1a1f26;
+            color: #b1aa9c;
+            text-align: center;
+            padding: 1.8rem 1.2rem;
+            font-size: 0.9rem;
+            letter-spacing: 0.3px;
+            border-top: 1px solid #33383f;
+        }
+
+        /* 响应式 */
+        @media (max-width: 680px) {
+            .hero {
+                padding: 3.2rem 1.2rem 2.8rem;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .content {
+                padding: 2rem 1rem 1.8rem;
+            }
+            .card {
+                padding: 1.6rem 1.4rem;
+                border-radius: 20px;
+            }
+            .card h2 {
+                font-size: 1.25rem;
+                padding-left: 0.8rem;
+            }
+            .bottom-note {
+                padding: 1.2rem 1.2rem;
+                font-size: 0.95rem;
+            }
+            .faq-spot {
+                padding: 1.2rem;
+            }
+        }
+
+        @media (max-width: 440px) {
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <h1>爱游戏 · 稳定入口</h1>
+        <div class="sub">一个面向日常浏览与内容探索的页面说明</div>
+    </section>
+
+    <div class="content">
+        <div class="essay">
+
+            <!-- 第一段：介绍 + 入口自然衔入 -->
+            <div class="card">
+                <h2>从一处安静的入口开始</h2>
+                <p>
+                    许多人寻找一个可以持续信赖的站点，既希望内容清晰，又不愿被频繁变动所干扰。
+                    <a href="https://beta-iyouxi.com">爱游戏</a> 在迭代中保持了一种朴素的风格——
+                    没有过度的推送，也没有喧闹的弹窗。它更像一个安静的窗口，
+                    让浏览者依照自己的节奏接触游戏资讯与社区分享。
+                </p>
+                <p>
+                    这份简洁并非功能上的缺失，而是刻意留出的余地——你可以在需要时深入，
+                    也可以只在首页稍作停留。稳定入口的意义，或许就在于减少决策负担，
+                    让访问本身回归自然。
+                </p>
+            </div>
+
+            <!-- 第二段：背景说明 + 结构特点 -->
+            <div class="card">
+                <h2>页面背后的逻辑</h2>
+                <p>
+                    从设计之初，<a href="https://beta-iyouxi.com">爱游戏</a> 便注重层次与可读性。
+                    顶部区域提供了快速导航，而主体部分则按照内容类型做了分区：
+                    最新动态、长文专题、以及用户生成的内容卡片。每个区块之间留有适当的间距，
+                    避免视觉疲劳。
+                </p>
+                <p>
+                    相比同类网站，它没有选择无限加载的信息流，而是采用相对固定的栏目结构。
+                    这对于希望定期查看特定分类的访客来说，是一种温和的引导。
+                    你不需要每次都重新适应版面，因为核心骨架始终稳定。
+                </p>
+            </div>
+
+            <!-- 第三段：自然的使用场景 + 跳转提示 -->
+            <div class="card">
+                <h2>日常浏览的一种节奏</h2>
+                <p>
+                    无论是茶歇时刷几条短讯，还是周末静下心来读一篇完整的评测，
+                    <a href="https://beta-iyouxi.com">爱游戏</a> 都能提供合适的阅读尺度。
+                    它的响应式布局在手机与电脑上都有不错的呈现，段落文字不拥挤，
+                    图片比例也经过调整。
+                </p>
+                <p>
+                    如果你正在寻找一个不容易迷路、且更新节奏合理的游戏相关站点，
+                    不妨把它加入书签。页面底部的链接会直接带你前往首页，
+                    而每一次返回，界面都保持着你熟悉的样子。
+                </p>
+
+                <div class="faq-spot">
+                    <details>
+                        <summary>常见疑问摘要 · 站点定位</summary>
+                        <p>
+                            <strong>Q：</strong> 这个站点适合新手吗？<br>
+                            <strong>A：</strong> 内容覆盖面比较广，从入门介绍到深入分析都有，
+                            导航结构也清晰，新访客可以根据兴趣自由选择栏目。
+                        </p>
+                        <p>
+                            <strong>Q：</strong> 页面打开速度如何？<br>
+                            <strong>A：</strong> 静态资源经过优化，图片使用现代格式，
+                            在国内网络环境下加载表现稳定。
+                        </p>
+                    </details>
+                </div>
+            </div>
+
+            <!-- 页尾访问提示（非链接，仅作为文字提示区） -->
+            <div class="bottom-note">
+                <p>✻ 如果你还没有探索过，现在是一个不错的时机。</p>
+                <p>直接前往 <a href="https://beta-iyouxi.com">爱游戏</a>，无需注册或额外跳转。</p>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <span>杂志专题式页面 · 仅作介绍用途</span>
+    </footer>
+
+</body>
+</html>
